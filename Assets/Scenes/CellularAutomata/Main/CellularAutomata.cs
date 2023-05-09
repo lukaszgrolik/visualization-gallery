@@ -69,6 +69,7 @@ namespace Main
         private float lastTickTime = -Mathf.Infinity;
 
         // private Dictionary<CellItem, GameObject> dict_cellItem_gameObject = new Dictionary<CellItem, GameObject>();
+        private List<CellItem> cellItems = new List<CellItem>();
         private Dictionary<Core.CA.Cell, CellItem> dict_cell_cellItem = new Dictionary<Core.CA.Cell, CellItem>();
 
         // Start is called before the first frame update
@@ -89,6 +90,11 @@ namespace Main
             {
                 cellsGrid.Tick();
 
+                for (int i = 0; i < cellItems.Count; i++)
+                {
+                    cellItems[i].OnIteration(cellsGrid.Iteration);
+                }
+
                 lastTickTime = Time.time;
             }
         }
@@ -100,6 +106,7 @@ namespace Main
                 Destroy(item.Value.gameObject);
             }
 
+            cellItems.Clear();
             dict_cell_cellItem.Clear();
         }
 
@@ -132,6 +139,7 @@ namespace Main
 
             var cellItemScript = algo.OnCellItemSpawned(cellItemObj, cell, this);
 
+            cellItems.Add(cellItemScript);
             dict_cell_cellItem.Add(cell, cellItemScript);
         }
 
@@ -139,6 +147,7 @@ namespace Main
         {
             Destroy(dict_cell_cellItem[cell].gameObject);
 
+            cellItems.Remove(dict_cell_cellItem[cell]);
             dict_cell_cellItem.Remove(cell);
         }
 

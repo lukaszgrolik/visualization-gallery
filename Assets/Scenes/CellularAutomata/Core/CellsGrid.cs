@@ -13,6 +13,8 @@ namespace Core.CA
         protected GridState currentGridState;
         protected GridState previousGridState = null;
 
+        public int Iteration => currentGridState.iteration;
+
         // private int iteration = 0;
 
         public event System.Action<Cell> cellItemSpawned;

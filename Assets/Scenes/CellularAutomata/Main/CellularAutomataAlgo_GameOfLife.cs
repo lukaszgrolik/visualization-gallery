@@ -8,6 +8,7 @@ namespace Main
     {
         [SerializeField] private int seed = 1;
         [SerializeField][Range(0f, 1f)] private float chanceForInitialSpawn = .1f;
+        [SerializeField][Min(0)] private float growthSpeed = 0;
         [SerializeField][Min(1)] private int colorsCount = 12;
         [SerializeField][Min(1)] private int colorGenerationSize = 1;
 
@@ -25,6 +26,8 @@ namespace Main
             var cellItemScript = cellItemObj.AddComponent<CellItem_GameOfLife>();
             cellItemScript.Setup(
                 cellItem: cell.Item as Core.Automata.GameOfLife.CellItem,
+                cellItemSize: cellularAutomata.CellItemSize,
+                growthSpeed: growthSpeed,
                 colorsCount: colorsCount,
                 colorGenerationSize: colorGenerationSize
             );

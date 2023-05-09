@@ -17,6 +17,8 @@ namespace Main
             // OnSetup();
         }
 
+        abstract public void OnIteration(int iteration);
+
         // protected abstract void OnSetup();
     }
 }

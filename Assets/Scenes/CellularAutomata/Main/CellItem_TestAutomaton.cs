@@ -28,6 +28,12 @@ namespace Main
             SetColor();
         }
 
+        public override void OnIteration(int iteration)
+        {
+
+        }
+
+
         void OnAged(Core.CA.CellItem cellItem)
         {
             transform.localScale = transform.localScale.With(y: transform.localScale.y + ageGrowth);

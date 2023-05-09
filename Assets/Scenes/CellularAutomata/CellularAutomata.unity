@@ -193,10 +193,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8be2487c4a90a3a44af6eaf64313a302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seed: 1
+  seed: 4
   chanceForInitialSpawn: 0.2
-  colorsCount: 12
-  colorGenerationSize: 10
+  growthSpeed: 0.1
+  colorsCount: 6
+  colorGenerationSize: 20
 --- !u!114 &161449381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -339,6 +340,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   seed: 1
   chanceForInitialSpawn: 0.2
+  growthSpeed: 0
   colorsCount: 12
   colorGenerationSize: 10
 --- !u!114 &741296768
